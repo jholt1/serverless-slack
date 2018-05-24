@@ -130,6 +130,17 @@ class Client {
     if (!endPoint.match(/^http/i)) message = qs.stringify(message);
     return this.api.post(endPoint, message).then(this.getData);
   }
+      
+      
+  /**
+   * Retrieve data from Slack's API
+   *
+   * @param {string} endPoint - The method name or url (optional - defaults to chat.postMessage)
+   * @return {Promise} A promise with the API response
+   */
+  retrieve(endPoint) {
+    return this.api.post(`${endPoint}?token=${this.token}`, message).then(this.getData);
+  }
 
 
   /**
