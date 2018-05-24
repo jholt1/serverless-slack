@@ -139,6 +139,7 @@ class Client {
    * @return {Promise} A promise with the API response
    */
   retrieve(endPoint) {
+    console.log(`${endPoint}?token=${this.token}`);
     return this.api.post(`${endPoint}?token=${this.token}`, message).then(this.getData);
   }
 
